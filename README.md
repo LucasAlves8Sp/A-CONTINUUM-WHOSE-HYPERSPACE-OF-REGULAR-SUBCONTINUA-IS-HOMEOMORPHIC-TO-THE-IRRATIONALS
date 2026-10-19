@@ -1,0 +1,37 @@
+# A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals
+
+**Lucas Alves de Almeida**
+
+## Abstract
+
+For a metric continuum $X$, let $\mathcal D(X)$ be the hyperspace of subcontinua of $X$ equal to the closure of their interior, with the Hausdorff metric. Camargo, Ordoñez and Ramírez asked whether $\mathcal D(X)$ can be homeomorphic to the rationals or to the irrationals. We answer the latter question affirmatively. We construct a continuum $X\subseteq\ell^2$ as the closure of a countable tree of scaled copies of an indecomposable plane continuum. Two types of piece alternate: blocks with dense interior, and spines with empty interior carrying densely attached blocks. We characterize all regular subcontinua by nonempty convex sets of pieces satisfying a density condition, and prove that this coding is a homeomorphism onto a $G_\delta$ subset of a Cantor cube. We then show that no point of $\mathcal D(X)$ has a compact neighborhood. The Alexandrov–Urysohn characterization yields $\mathcal D(X)\cong\mathbb N^{\mathbb N}$, and hence $\mathcal D(X)$ is homeomorphic to the irrationals. We also explain why this construction does not extend to the rational case, which remains open.
+
+## Contents
+
+| Path | Description |
+| --- | --- |
+| [`paper/regular-subcontinua-irrationals.pdf`](paper/regular-subcontinua-irrationals.pdf) | The paper (PDF) |
+| [`paper/regular-subcontinua-irrationals.tex`](paper/regular-subcontinua-irrationals.tex) | LaTeX source of the paper (single file, `amsart`, figures in TikZ) |
+| [`lean/`](lean/) | Lean 4 / Mathlib formalization of the combinatorial core of the proof; see [`lean/README.md`](lean/README.md) |
+| [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md) | The AI disclosure, as it appears in the paper |
+| [`prompt/first-prompt.md`](prompt/first-prompt.md) | The full first prompt given to Claude to start the work, unedited |
+
+## Building
+
+**Paper.** Run `latexmk -pdf regular-subcontinua-irrationals.tex` (or `pdflatex` twice) in `paper/`.
+
+**Lean.** In `lean/`, with Lean 4.35.0 and Mathlib at commit `6015dbbfc399f4548bafd46f9560ff61595fd328`:
+
+```
+lake update
+lake exe cache get
+lake build
+lake env lean CheckAxioms.lean
+lake env lean SanityChecks.lean
+```
+
+`CheckAxioms.lean` reports only Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`). The Alexandrov–Urysohn theorem and the geometric identification of $\mathcal D(X)$ with the code space (Theorem 4.6 and Proposition 5.2) enter as explicit hypotheses; see [`lean/README.md`](lean/README.md) for what is proved and what is assumed.
+
+## Status
+
+No independent expert has yet verified the proofs. Problem Q (whether $\mathcal D(X)$ can be homeomorphic to the rationals) remains open.
