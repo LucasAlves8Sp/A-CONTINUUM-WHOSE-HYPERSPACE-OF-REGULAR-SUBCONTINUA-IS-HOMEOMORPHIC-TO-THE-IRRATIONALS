@@ -1,6 +1,6 @@
 # A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals
 
-**Lucas Alves de Almeida**
+**Lucas Alves de Almeida** (independent researcher)
 
 ## Abstract
 
@@ -15,6 +15,25 @@ For a metric continuum $X$, let $\mathcal D(X)$ be the hyperspace of subcontinua
 | [`lean/`](lean/) | Lean 4 / Mathlib formalization of the combinatorial core of the proof; see [`lean/README.md`](lean/README.md) |
 | [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md) | The AI disclosure, as it appears in the paper |
 | [`prompt/first-prompt.md`](prompt/first-prompt.md) | The full first prompt given to Claude to start the work, unedited |
+| [`LICENSE.md`](LICENSE.md) | CC BY 4.0 for the paper and texts; Apache-2.0 for the Lean code |
+
+## The Lean formalization
+
+The folder [`lean/`](lean/) contains a Lean 4 / Mathlib development (Lean 4.35.0, Mathlib commit `6015dbb`, about 830 lines) that machine-checks the combinatorial and topological core of the proof.
+
+**What Lean proves** (no `sorry`, only the standard axioms `propext`, `Classical.choice`, `Quot.sound`):
+
+- the index tree of the construction, tree paths and convexity (`RegSub/Tree.lean`);
+- the admissible sets of pieces, conditions (a)–(c) of Theorem 4.6, and the code modifications used in both cases of Proposition 5.4 (`RegSub/CodeSpace.lean`);
+- the code space $\mathfrak D\subseteq 2^{\mathcal P}$ is nonempty, $G_\delta$ and zero-dimensional, and every compact subset of it has empty interior (`RegSub/Topology.lean`);
+- a $G_\delta$ subset of a Polish space is Polish (`RegSub/GdeltaPolish.lean`), so $\mathfrak D$ is Polish.
+
+**What enters as explicit hypotheses** (`RegSub/TheoremA.lean`):
+
+- the Alexandrov–Urysohn characterization of the Baire space (Kechris, Theorem 7.7);
+- the geometric identification of $\mathcal D(X)$ with the code space (Theorem 4.6 and Proposition 5.2), which relies on the Knaster continuum, composants and the construction in $\ell^2$, none of which are in Mathlib.
+
+From these, `theoremA` concludes $\mathcal D(X)\cong\mathbb N^{\mathbb N}$; the classical step $\mathbb N^{\mathbb N}\cong\mathbb I$ is not formalized. `SanityChecks.lean` checks that the Lean definitions match the paper on small examples, and the development was also re-checked with `leanchecker` and the external type checker `nanoda`. See [`lean/README.md`](lean/README.md) for details.
 
 ## Building
 

@@ -1,0 +1,26 @@
+{
+  "title": "A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "<p>For a metric continuum <i>X</i>, let D(<i>X</i>) be the hyperspace of subcontinua of <i>X</i> equal to the closure of their interior, with the Hausdorff metric. Camargo, Ordoñez and Ramírez asked whether D(<i>X</i>) can be homeomorphic to the rationals or to the irrationals (Appl. Gen. Topol. 25 (2024), Question 3.26). We answer the latter question affirmatively. We construct a continuum <i>X</i> ⊆ ℓ² as the closure of a countable tree of scaled copies of an indecomposable plane continuum. Two types of piece alternate: blocks with dense interior, and spines with empty interior carrying densely attached blocks. We characterize all regular subcontinua by nonempty convex sets of pieces satisfying a density condition, and prove that this coding is a homeomorphism onto a G<sub>δ</sub> subset of a Cantor cube. We then show that no point of D(<i>X</i>) has a compact neighborhood. The Alexandrov–Urysohn characterization yields D(<i>X</i>) ≅ ℕ<sup>ℕ</sup>, and hence D(<i>X</i>) is homeomorphic to the irrationals. We also explain why this construction does not extend to the rational case, which remains open.</p><p><b>Lean formalization.</b> The deposit includes a Lean 4 / Mathlib formalization (Lean 4.35.0, Mathlib commit 6015dbb) of the combinatorial core of the proof. Using only Lean's standard axioms, it proves that the code space of admissible sets of pieces is a nonempty, zero-dimensional, Polish (G<sub>δ</sub>) subspace of a Cantor cube in which every compact subset has empty interior. Theorem A in the form D(<i>X</i>) ≅ ℕ<sup>ℕ</sup> is then derived from two results stated as explicit hypotheses: the Alexandrov–Urysohn theorem and the geometric identification of D(<i>X</i>) with the code space (Theorem 4.6 and Proposition 5.2 of the paper). The development was also checked with leanchecker and the external type checker nanoda.</p><p><b>Status.</b> Preprint; no independent expert has yet verified the proofs. The paper was prepared with substantial AI assistance (Claude Opus 5.5, Anthropic); see the AI disclosure in the paper and AI_DISCLOSURE.md. The full first prompt is included in prompt/first-prompt.md.</p>",
+  "creators": [
+    {
+      "name": "Alves de Almeida, Lucas",
+      "affiliation": "Independent researcher"
+    }
+  ],
+  "keywords": [
+    "continuum",
+    "hyperspace",
+    "regular subcontinuum",
+    "indecomposable continuum",
+    "Baire space",
+    "irrational numbers",
+    "Lean 4",
+    "formalization"
+  ],
+  "license": "cc-by-4.0",
+  "access_right": "open",
+  "language": "eng",
+  "notes": "Not yet independently peer reviewed. Mathematics Subject Classification 2020: Primary 54B20; Secondary 54F15, 54F16, 54H05."
+}

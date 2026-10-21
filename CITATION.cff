@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "If you use this work, please cite it as below."
+title: "A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals"
+type: article
+authors:
+  - family-names: "Alves de Almeida"
+    given-names: "Lucas"
+    affiliation: "Independent researcher"
+license: CC-BY-4.0
+repository-code: "https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS"
+keywords:
+  - continuum
+  - hyperspace
+  - regular subcontinuum
+  - Baire space
+  - Lean 4
