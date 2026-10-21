@@ -1,5 +1,7 @@
 # A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23528477.svg)](https://doi.org/10.5281/zenodo.23528477)
+
 **Lucas Alves de Almeida** (independent researcher)
 
 ## Abstract
@@ -50,6 +52,24 @@ lake env lean SanityChecks.lean
 ```
 
 `CheckAxioms.lean` reports only Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`). The Alexandrov–Urysohn theorem and the geometric identification of $\mathcal D(X)$ with the code space (Theorem 4.6 and Proposition 5.2) enter as explicit hypotheses; see [`lean/README.md`](lean/README.md) for what is proved and what is assumed.
+
+## How to cite
+
+Lucas Alves de Almeida, *A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals*, preprint, Zenodo, 2026. [doi:10.5281/zenodo.23528477](https://doi.org/10.5281/zenodo.23528477)
+
+This DOI always resolves to the latest version; version v1.0.1 has DOI [10.5281/zenodo.23528478](https://doi.org/10.5281/zenodo.23528478).
+
+```bibtex
+@misc{AlvesdeAlmeida2026irrationals,
+  author    = {Alves de Almeida, Lucas},
+  title     = {A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals},
+  year      = {2026},
+  publisher = {Zenodo},
+  note      = {Preprint},
+  doi       = {10.5281/zenodo.23528477},
+  url       = {https://doi.org/10.5281/zenodo.23528477}
+}
+```
 
 ## Status
 
