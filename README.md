@@ -1,8 +1,20 @@
 # A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23528477.svg)](https://doi.org/10.5281/zenodo.23528477)
+[![Hexagon](https://img.shields.io/badge/hexagon-2610.00570-4b5563.svg)](https://hexagonmath.org/pdf/2610.00570v1)
+[![Lean 4](https://img.shields.io/badge/Lean_4-fully_formalized-2f6f4f.svg)](lean/)
 
 **Lucas Alves de Almeida** (independent researcher)
+
+**Main result.** There is a continuum $X\subseteq\ell^2$ whose hyperspace $\mathcal D(X)$ of regular subcontinua is homeomorphic to the Baire space $\mathbb N^{\mathbb N}$, and hence to the irrationals. This answers the irrational case of a question of Camargo, Ordoñez and Ramírez (Appl. Gen. Topol. 25 (2024), Question 3.26). The proof is **completely formalized in Lean 4 with Mathlib**, including the classical results it uses.
+
+| | |
+| --- | --- |
+| Paper (PDF) | [`paper/regular-subcontinua-irrationals.pdf`](paper/regular-subcontinua-irrationals.pdf) |
+| Zenodo (all versions) | [doi:10.5281/zenodo.23528477](https://doi.org/10.5281/zenodo.23528477) |
+| Hexagon preprint | [hexagon:2610.00570v1](https://hexagonmath.org/pdf/2610.00570v1) |
+| Lean formalization | [`lean/`](lean/), with the main theorem `RegSub.theoremA_l2` |
+| Review and verification | [`REVIEW_AND_VERIFICATION.md`](REVIEW_AND_VERIFICATION.md) |
 
 ## Abstract
 
@@ -12,30 +24,49 @@ For a metric continuum $X$, let $\mathcal D(X)$ be the hyperspace of subcontinua
 
 | Path | Description |
 | --- | --- |
-| [`paper/regular-subcontinua-irrationals.pdf`](paper/regular-subcontinua-irrationals.pdf) | The paper (PDF) |
+| [`paper/regular-subcontinua-irrationals.pdf`](paper/regular-subcontinua-irrationals.pdf) | The paper (PDF, version v15) |
 | [`paper/regular-subcontinua-irrationals.tex`](paper/regular-subcontinua-irrationals.tex) | LaTeX source of the paper (single file, `amsart`, figures in TikZ) |
-| [`lean/`](lean/) | Lean 4 / Mathlib formalization of the combinatorial core of the proof; see [`lean/README.md`](lean/README.md) |
+| [`lean/`](lean/) | Complete Lean 4 / Mathlib formalization of Theorem A; see [`lean/README.md`](lean/README.md) |
+| [`lean/checks/`](lean/checks/) | Logs of the build, axiom, kernel-replay and external type-checker runs, and a script that reproduces them |
+| [`REVIEW_AND_VERIFICATION.md`](REVIEW_AND_VERIFICATION.md) | Mathematical review of the paper; coverage of the paper by the Lean code; the checks performed |
 | [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md) | The AI disclosure, as it appears in the paper |
 | [`prompt/first-prompt.md`](prompt/first-prompt.md) | The full first prompt given to Claude to start the work, unedited |
 | [`LICENSE.md`](LICENSE.md) | CC BY 4.0 for the paper and texts; Apache-2.0 for the Lean code |
 
 ## The Lean formalization
 
-The folder [`lean/`](lean/) contains a Lean 4 / Mathlib development (Lean 4.35.0, Mathlib commit `6015dbb`, about 830 lines) that machine-checks the combinatorial and topological core of the proof.
+The folder [`lean/`](lean/) contains a Lean 4 / Mathlib development that formalizes the **complete proof of Theorem A**, including the classical results it uses. It uses Lean 4.35.0 and Mathlib commit `6015dbb`, and has about 4,600 lines in 17 files. There is no `sorry`, no added axiom and no hypothesis. `#print axioms` reports only Lean's standard axioms `propext`, `Classical.choice` and `Quot.sound`. The final theorem (`RegSub/Main.lean`) is
 
-**What Lean proves** (no `sorry`, only the standard axioms `propext`, `Classical.choice`, `Quot.sound`):
+```lean
+theorem RegSub.theoremA_l2 :
+    ∃ X : Set (lp (fun _ : ℕ => ℝ) 2), IsCompact X ∧ IsConnected X ∧ X.Nontrivial ∧
+      Nonempty (regularSubcontinua X ≃ₜ (ℕ → ℕ)) ∧
+      Nonempty (regularSubcontinua X ≃ₜ {x : ℝ // Irrational x})
+```
 
-- the index tree of the construction, tree paths and convexity (`RegSub/Tree.lean`);
-- the admissible sets of pieces, conditions (a)–(c) of Theorem 4.6, and the code modifications used in both cases of Proposition 5.4 (`RegSub/CodeSpace.lean`);
-- the code space $\mathfrak D\subseteq 2^{\mathcal P}$ is nonempty, $G_\delta$ and zero-dimensional, and every compact subset of it has empty interior (`RegSub/Topology.lean`);
-- a $G_\delta$ subset of a Polish space is Polish (`RegSub/GdeltaPolish.lean`), so $\mathfrak D$ is Polish.
+Here `regularSubcontinua X` is the set of connected nonempty compact subsets `A` of `X` with `closure (interior A) = A`, with the Hausdorff-metric topology.
 
-**What enters as explicit hypotheses** (`RegSub/TheoremA.lean`):
+**What is formalized:**
 
-- the Alexandrov–Urysohn characterization of the Baire space (Kechris, Theorem 7.7);
-- the geometric identification of $\mathcal D(X)$ with the code space (Theorem 4.6 and Proposition 5.2), which relies on the Knaster continuum, composants and the construction in $\ell^2$, none of which are in Mathlib.
+- the template continuum (the inverse limit of the tent map, a model of the Knaster continuum), Fact 2.4(a),(d) for it, and Lemma 3.1 on points in distinct composants (via the Baire category theorem);
+- the construction in $\ell^2$ and Lemmas 3.2, 3.3 and 3.5(a),(c);
+- branches, retractions and crossing, atoms, and the block representation (Lemmas 4.2–4.5);
+- Theorem 4.6, both directions;
+- Lemma 5.1, Proposition 5.2 ($\mathcal D(X)\cong\mathfrak D$), Proposition 5.3, and Proposition 5.4 in code form;
+- the Alexandrov–Urysohn theorem (Kechris, Theorem 7.7), proved with a Lusin scheme, and $\mathbb N^{\mathbb N}\cong\mathbb I$.
 
-From these, `theoremA` concludes $\mathcal D(X)\cong\mathbb N^{\mathbb N}$; the classical step $\mathbb N^{\mathbb N}\cong\mathbb I$ is not formalized. `SanityChecks.lean` checks that the Lean definitions match the paper on small examples, and the development was also re-checked with `leanchecker` and the external type checker `nanoda`. See [`lean/README.md`](lean/README.md) for details.
+The formalization follows the paper. It differs only in presentation: the template model, coordinate blocks in $\ell^2$ instead of planes, the root offset, the indexing, and the encoding of condition (c). These differences are listed in the AI disclosure and in [`lean/README.md`](lean/README.md).
+
+**Checks** (logs in [`lean/checks/`](lean/checks/)):
+
+| Check | Result |
+| --- | --- |
+| clean `lake build` against the pinned Mathlib | builds; only style warnings suggesting the `module` keyword |
+| clean build with `lean` directly | no errors, no warnings |
+| `CheckAxioms.lean` (33 results, including Theorem A) | only `propext`, `Classical.choice`, `Quot.sound` |
+| `SanityChecks.lean` (the translation checked on examples) | passes |
+| kernel replay with `leanchecker`, all 17 modules | passes |
+| independent type checker `nanoda`, Theorem A and all dependencies | "Checked 23932 declarations with no errors" |
 
 ## Building
 
@@ -49,15 +80,19 @@ lake exe cache get
 lake build
 lake env lean CheckAxioms.lean
 lake env lean SanityChecks.lean
+./checks/run_checks.sh    # optional: leanchecker and nanoda as well
 ```
-
-`CheckAxioms.lean` reports only Lean's standard axioms (`propext`, `Classical.choice`, `Quot.sound`). The Alexandrov–Urysohn theorem and the geometric identification of $\mathcal D(X)$ with the code space (Theorem 4.6 and Proposition 5.2) enter as explicit hypotheses; see [`lean/README.md`](lean/README.md) for what is proved and what is assumed.
 
 ## How to cite
 
-Lucas Alves de Almeida, *A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals*, preprint, Zenodo, 2026. [doi:10.5281/zenodo.23528477](https://doi.org/10.5281/zenodo.23528477)
+Lucas Alves de Almeida, *A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals*, preprint, Zenodo, 2026. [doi:10.5281/zenodo.23528477](https://doi.org/10.5281/zenodo.23528477). Also available as [hexagon:2610.00570](https://hexagonmath.org/pdf/2610.00570v1).
 
-This DOI always resolves to the latest version; version v1.0.1 has DOI [10.5281/zenodo.23528478](https://doi.org/10.5281/zenodo.23528478).
+The Zenodo DOI above always resolves to the latest version.
+
+| Version | Content | DOI |
+| --- | --- | --- |
+| v1.0.1 | paper v14; Lean formalization of the combinatorial core | [10.5281/zenodo.23528478](https://doi.org/10.5281/zenodo.23528478) |
+| v2.0.0 | paper v15; complete Lean formalization of Theorem A | see [Zenodo](https://doi.org/10.5281/zenodo.23528477) |
 
 ```bibtex
 @misc{AlvesdeAlmeida2026irrationals,
@@ -65,7 +100,7 @@ This DOI always resolves to the latest version; version v1.0.1 has DOI [10.5281/
   title     = {A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals},
   year      = {2026},
   publisher = {Zenodo},
-  note      = {Preprint},
+  note      = {Preprint, hexagon:2610.00570},
   doi       = {10.5281/zenodo.23528477},
   url       = {https://doi.org/10.5281/zenodo.23528477}
 }
@@ -73,4 +108,4 @@ This DOI always resolves to the latest version; version v1.0.1 has DOI [10.5281/
 
 ## Status
 
-No independent expert has yet verified the proofs. Problem Q (whether $\mathcal D(X)$ can be homeomorphic to the rationals) remains open.
+No independent expert has yet verified the proofs. The Lean formalization checks the complete proof of Theorem A against the definitions stated above. Problem Q, whether $\mathcal D(X)$ can be homeomorphic to the rationals, remains open.

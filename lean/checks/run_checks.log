@@ -1,0 +1,79 @@
+== axioms
+'RegSub.theoremA_l2' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.theoremA_unconditional' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.DX_homeomorph_baire' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.alexandrovUrysohnStatement' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.geometricIdentification' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.alexandrovUrysohn' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.baire_homeomorph_irr' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.isGδ_polishSpace' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.eq_univ_of_interior_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.isConnected_knaster' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.exists_template' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.Y_eq' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.Y_inter_Z' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.isCompact_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.isConnected_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.nontrivial_X' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.piece_subset_closure_relInt_block' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.X_subset_closure_Ublk' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.piece_subset_of_crossing' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.piece_subset_of_relInt' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.eq_closure_blocks' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.pcs_admissible' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.reg_Psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.pcs_Psi' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.hausdorffDist_Psi_le' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.PhiHomeo' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.pathConvex_iff_parentClosed' depends on axioms: [propext, Quot.sound]
+'RegSub.codeSet_nonempty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.isGδ_codeSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.instZeroDimensionalSpaceCodeSet' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.isCompact_interior_eq_empty' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.codeSet_homeomorph_baire' depends on axioms: [propext, Classical.choice, Quot.sound]
+'RegSub.theoremA' depends on axioms: [propext, Classical.choice, Quot.sound]
+== sanity checks
+SanityChecks.lean: ok
+== kernel replay (leanchecker)
+RegSub.Tree: ok
+RegSub.CodeSpace: ok
+RegSub.Topology: ok
+RegSub.GdeltaPolish: ok
+RegSub.TheoremA: ok
+RegSub.Knaster: ok
+RegSub.Composant: ok
+RegSub.AlexandrovUrysohn: ok
+RegSub.Irrational: ok
+RegSub.Hilbert: ok
+RegSub.Construction: ok
+RegSub.Geometry: ok
+RegSub.Interiors: ok
+RegSub.Description: ok
+RegSub.Theorem46: ok
+RegSub.Identification: ok
+RegSub.Main: ok
+== external type checker (nanoda)
+theorem RegSub.theoremA_l2 :
+  Exists
+    (fun (X :
+        Set
+          (Subtype
+            (fun (x : PreLp (fun (x._@.RegSub.Hilbert.171547502._hygCtx._hyg.10 : Nat) => Real)) =>
+            Membership.mem (lp (fun (x._@.RegSub.Hilbert.171547502._hygCtx._hyg.10 : Nat) => Real) (OfNat.ofNat 2))
+              x))) =>
+    And (IsCompact X)
+      (And (IsConnected X)
+        (And (Set.Nontrivial X)
+          (And (Nonempty (Homeomorph (Set.Elem (RegSub.regularSubcontinua (Set.Elem X))) (Nat → Nat)))
+            (Nonempty
+              (Homeomorph (Set.Elem (RegSub.regularSubcontinua (Set.Elem X)))
+                (Subtype (fun (x : Real) => Irrational x)))))))) :=
+  _
+
+axiom propext {a b : Prop} : Iff a b → Eq a b
+
+axiom Quot.sound.{u} {α : Sort u} {r : α → α → Prop} {a b : α} : r a b → Eq (Quot.mk r a) (Quot.mk r b)
+
+axiom Classical.choice.{u} {α : Sort u} : Nonempty α → α
+
+Checked 23932 declarations with no errors

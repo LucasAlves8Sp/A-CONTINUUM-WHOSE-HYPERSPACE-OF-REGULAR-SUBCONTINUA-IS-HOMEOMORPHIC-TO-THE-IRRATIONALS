@@ -90,3 +90,68 @@ example (X : Type) [MetricSpace X] :
 -- The distance on `NonemptyCompacts X` is the Hausdorff distance.
 example (X : Type) [MetricSpace X] (A B : NonemptyCompacts X) :
     dist A B = Metric.hausdorffDist (A : Set X) (B : Set X) := rfl
+
+/-! ### The unconditional Theorem A -/
+
+#check @RegSub.theoremA_l2
+#check @RegSub.theoremA_unconditional
+#check @RegSub.alexandrovUrysohn
+#check @RegSub.baire_homeomorph_irr
+#check @RegSub.PhiHomeo
+
+-- the abstract statements of `RegSub.TheoremA` are now theorems
+example : AlexandrovUrysohnStatement := alexandrovUrysohnStatement
+example : GeometricIdentification := geometricIdentification
+
+/-! ### The Knaster continuum (Section 2) -/
+
+example : tent (1 / 4) = 1 / 2 := by norm_num [tent]
+example : tent (3 / 4) = 1 / 2 := by norm_num [tent]
+example : tent 1 = 0 := by norm_num [tent]
+example : (0 : ℕ → ℝ) ∈ Knaster := zero_mem_knaster
+#print RegSub.Knaster
+
+/-- The Knaster continuum is indecomposable: it is not the union of two proper subcontinua.
+This follows from Fact 2.4(a) (`eq_univ_of_interior_nonempty`) and is recorded here as a check
+that the formal Fact 2.4(a) has its intended strength. -/
+theorem knaster_indecomposable {A B : Set KnasterSpace} (hA : IsClosed A) (hB : IsClosed B)
+    (hAc : IsPreconnected A) (hAB : A ∪ B = Set.univ) : A = Set.univ ∨ B = Set.univ := by
+  by_cases h : (interior A).Nonempty
+  · exact Or.inl (eq_univ_of_interior_nonempty hA hAc h)
+  · right
+    rw [Set.not_nonempty_iff_eq_empty] at h
+    have hsub : Bᶜ ⊆ interior A := interior_maximal
+      (fun x hx => ((Set.eq_univ_iff_forall.mp hAB x).resolve_right hx)) hB.isOpen_compl
+    rw [h] at hsub
+    exact Set.eq_univ_of_forall fun x => by_contra fun hx => hsub hx
+
+-- Lemma 3.1: the template points, with the properties used in the construction
+#print RegSub.Template
+#check @RegSub.exists_template
+
+/-! ### The construction (Section 3) -/
+
+-- the tree, with `childOf` as in the paper (0-indexed)
+example : childOf root 3 = spine [] 3 := rfl
+example : childOf (spine [] 3) 5 = block [(3, 5)] := rfl
+example : (childOf (spine [] 3) 5).parent = some (spine [] 3) := parent_childOf _ _
+-- scales: `λ(child n of P) = λ(P) / 2^(n+2)`
+example (P : Piece) (n : ℕ) : lam (childOf P n) = lam P / 2 ^ (n + 2) := lam_childOf P n
+-- the realization: the piece of `P` is `pt P + λ(P) · J_P (ι z - ι o_P)`, passing through `pt P`
+#print RegSub.phi
+example (P : Piece) : phi P (opt P) = pt P := phi_opt P
+#print RegSub.X
+example : X.Nontrivial := nontrivial_X
+
+/-! ### Regularity, Theorem 4.6 and Proposition 5.2 -/
+
+#print RegSub.relInt
+#print RegSub.Reg
+-- the Lean notion of regular subcontinuum of `X` agrees with `Reg` on subsets of `ℓ²`
+#check @RegSub.reg_iff
+-- the encoded density condition (c) is the paper's density condition
+#check @RegSub.dense_iff_infinite
+#check @RegSub.pcs_admissible
+#check @RegSub.pcs_Psi
+#check @RegSub.Psi_pcs
+#check @RegSub.hausdorffDist_Psi_le

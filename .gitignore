@@ -8,3 +8,6 @@ lean/.lake/
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+
+# Logs of the Lean checks are kept
+!lean/checks/*.log

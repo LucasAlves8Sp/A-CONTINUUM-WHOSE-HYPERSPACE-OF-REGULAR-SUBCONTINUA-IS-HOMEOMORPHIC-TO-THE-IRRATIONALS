@@ -3,3 +3,15 @@ import RegSub.CodeSpace
 import RegSub.Topology
 import RegSub.GdeltaPolish
 import RegSub.TheoremA
+import RegSub.Knaster
+import RegSub.Composant
+import RegSub.AlexandrovUrysohn
+import RegSub.Irrational
+import RegSub.Hilbert
+import RegSub.Construction
+import RegSub.Geometry
+import RegSub.Interiors
+import RegSub.Description
+import RegSub.Theorem46
+import RegSub.Identification
+import RegSub.Main

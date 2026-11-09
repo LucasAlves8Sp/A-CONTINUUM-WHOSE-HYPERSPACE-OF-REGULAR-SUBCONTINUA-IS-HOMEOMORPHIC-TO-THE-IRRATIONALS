@@ -7,6 +7,14 @@ authors:
     given-names: "Lucas"
     affiliation: "Independent researcher"
 doi: 10.5281/zenodo.23528477
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23528477
+    description: "Zenodo concept DOI (all versions)"
+  - type: url
+    value: "https://hexagonmath.org/pdf/2610.00570v1"
+    description: "Hexagon preprint hexagon:2610.00570"
+version: v2.0.0
 license: CC-BY-4.0
 repository-code: "https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS"
 keywords:
