@@ -8,7 +8,9 @@ A Lean 4 / Mathlib formalization of the complete proof of Theorem A of the paper
 
 The paper, its LaTeX source and the AI disclosure are on the `main` branch of
 [the repository](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS).
-This project is laid out for submission to the [Palomar registry](https://palomar-registry.org/):
+It is registered in the [Palomar registry](https://palomar-registry.org/) as
+[PALOMAR-2026-11-10-000005 v1](https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1),
+from commit `1261e4b` of the branch `palomar`. The project is laid out as Palomar requires:
 `Challenge.lean` states the theorem, `Solution.lean` proves it, and `comparator.json` tells
 `lake comparator` how to compare them. The provenance and the other metadata are in `formalization.yaml`.
 

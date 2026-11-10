@@ -3,10 +3,11 @@
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23528477.svg)](https://doi.org/10.5281/zenodo.23528477)
 [![Hexagon](https://img.shields.io/badge/hexagon-2610.00570-4b5563.svg)](https://hexagonmath.org/pdf/2610.00570v1)
 [![Lean 4](https://img.shields.io/badge/Lean_4-fully_formalized-2f6f4f.svg)](lean/)
+[![Palomar](https://img.shields.io/badge/Palomar-PALOMAR--2026--11--10--000005-1f4e79.svg)](https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1)
 
 **Lucas Alves de Almeida** (independent researcher)
 
-**Main result.** There is a continuum $X\subseteq\ell^2$ whose hyperspace $\mathcal D(X)$ of regular subcontinua is homeomorphic to the Baire space $\mathbb N^{\mathbb N}$, and hence to the irrationals. This answers the irrational case of a question of Camargo, Ordoñez and Ramírez (Appl. Gen. Topol. 25 (2024), Question 3.26). The proof is **completely formalized in Lean 4 with Mathlib**, including the classical results it uses.
+**Main result.** There is a continuum $X\subseteq\ell^2$ whose hyperspace $\mathcal D(X)$ of regular subcontinua is homeomorphic to the Baire space $\mathbb N^{\mathbb N}$, and hence to the irrationals. This answers the irrational case of a question of Camargo, Ordoñez and Ramírez (Appl. Gen. Topol. 25 (2024), Question 3.26). The proof is **completely formalized in Lean 4 with Mathlib**, including the classical results it uses. The formalization is registered in the [Palomar registry](https://palomar-registry.org/) of Lean-verified mathematics as [PALOMAR-2026-11-10-000005](https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1).
 
 | | |
 | --- | --- |
@@ -15,7 +16,7 @@
 | Hexagon preprint | [hexagon:2610.00570v1](https://hexagonmath.org/pdf/2610.00570v1) |
 | Lean formalization | [`lean/`](lean/), with the main theorem `RegSub.theoremA_l2` |
 | Review and verification | [`REVIEW_AND_VERIFICATION.md`](REVIEW_AND_VERIFICATION.md) |
-| Palomar registry submission | branch [`palomar`](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/palomar) (the Lean project at the repository root, with an Apache-2.0 licence) |
+| Palomar registry | [PALOMAR-2026-11-10-000005 v1](https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1), registered 10 November 2026 from commit [`1261e4b`](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/1261e4bc3eefa83f95df9db1346949845930bf6d) of the branch [`palomar`](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/palomar) |
 
 ## Abstract
 
@@ -69,13 +70,19 @@ The formalization follows the paper. It differs only in presentation: the templa
 | kernel replay with `leanchecker`, all 17 modules | passes |
 | independent type checker `nanoda`, Theorem A and all dependencies | "Checked 23933 declarations with no errors" |
 
-**Palomar.** The formalization is prepared for the [Palomar registry](https://palomar-registry.org/) of formally verified results:
+**Palomar.** The formalization is registered in the [Palomar registry](https://palomar-registry.org/) of Lean-verified mathematics as **[PALOMAR-2026-11-10-000005 v1](https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1)** (registered 10 November 2026). For the registration:
+
+- Palomar ran `lake comparator` in its sandbox. It checked that `Solution.lean` proves the statement in `Challenge.lean`, which uses only Mathlib.
+- Lean's kernel and the independent kernels nanoda and con-ron all accepted the exported proof.
+- An automated review compared the formal statement with the informal claim and found no problems. This is an AI review, not human peer review.
+
+Palomar keeps a preserved copy of the source. Its files here:
 
 - `lean/Challenge.lean` states Theorem A using only Mathlib.
 - `lean/Solution.lean` re-exports the proof.
 - `lean/comparator.json` and `lean/formalization.yaml` hold the comparator configuration and the provenance metadata.
 
-Palomar requires a single licence file at the repository root, so the submitted copy is the branch [`palomar`](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/palomar). It contains the same Lean project at its root, with an Apache-2.0 `LICENSE`.
+Palomar requires a single licence file at the repository root, so the registered snapshot is commit [`1261e4b`](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/1261e4bc3eefa83f95df9db1346949845930bf6d) of the branch [`palomar`](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/palomar). It contains the same Lean project at its root, with an Apache-2.0 `LICENSE`.
 
 ## Building
 
@@ -99,6 +106,8 @@ Lucas Alves de Almeida, *A continuum whose hyperspace of regular subcontinua is 
 
 The Zenodo DOI above always resolves to the latest version.
 
+To cite the registered Lean formalization: Lucas Alves de Almeida, *A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals*, Palomar, [PALOMAR-2026-11-10-000005 v1](https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1), 2026.
+
 | Version | Content | DOI |
 | --- | --- | --- |
 | v1.0.1 | paper v14; Lean formalization of the combinatorial core | [10.5281/zenodo.23528478](https://doi.org/10.5281/zenodo.23528478) |
@@ -115,8 +124,16 @@ The Zenodo DOI above always resolves to the latest version.
   doi       = {10.5281/zenodo.23528477},
   url       = {https://doi.org/10.5281/zenodo.23528477}
 }
+
+@misc{palomar-2026-11-10-000005-v1,
+  author       = {{Lucas Alves de Almeida}},
+  title        = {{A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals}},
+  year         = {2026},
+  howpublished = {Palomar, PALOMAR-2026-11-10-000005 v1},
+  url          = {https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1}
+}
 ```
 
 ## Status
 
-No independent expert has yet verified the proofs. The Lean formalization checks the complete proof of Theorem A against the definitions stated above. Problem Q, whether $\mathcal D(X)$ can be homeomorphic to the rationals, remains open.
+No independent expert has yet verified the proofs. The Lean formalization checks the complete proof of Theorem A against the definitions stated above. It is registered in Palomar (PALOMAR-2026-11-10-000005), where the proof was mechanically verified and the statement passed an automated, non-human review. Problem Q, whether $\mathcal D(X)$ can be homeomorphic to the rationals, remains open.

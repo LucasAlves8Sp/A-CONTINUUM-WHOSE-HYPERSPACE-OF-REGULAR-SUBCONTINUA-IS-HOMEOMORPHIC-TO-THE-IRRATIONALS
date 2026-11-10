@@ -125,6 +125,12 @@ The development was then ported to the Lean module system, the format the Paloma
 
 The local `lake comparator` run used `--inadvisably-no-sandbox`, because `bwrap` was not available in the workspace. Palomar runs the sandboxed version.
 
+**Palomar registration.** The formalization was submitted to the [Palomar registry](https://palomar-registry.org/) from commit `1261e4b` of the branch `palomar` and registered as [PALOMAR-2026-11-10-000005 v1](https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1) on 10 November 2026. Palomar's own checks:
+
+* **Mechanical verification passed.** The sandboxed `lake comparator` confirmed that `Solution.lean` proves `Challenge.lean`, and Lean's kernel and the independent kernels nanoda and con-ron accepted the exported proof.
+* **Challenge renderability passed.**
+* **Automated editorial review: "No problems were identified."** It found no blocking problem with the statement, presentation, provenance or research interest. The review was made by a model, not a person; Palomar notes that it is neither human peer review nor a novelty certificate.
+
 **What `SanityChecks.lean` checks:**
 
 * tent map values: T(1/4) = T(3/4) = 1/2 and T(1) = 0;

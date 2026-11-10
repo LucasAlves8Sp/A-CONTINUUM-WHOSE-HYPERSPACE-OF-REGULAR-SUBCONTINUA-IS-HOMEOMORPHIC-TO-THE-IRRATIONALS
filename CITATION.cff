@@ -14,6 +14,9 @@ identifiers:
   - type: url
     value: "https://hexagonmath.org/pdf/2610.00570v1"
     description: "Hexagon preprint hexagon:2610.00570"
+  - type: url
+    value: "https://palomar-registry.org/entry?id=PALOMAR-2026-11-10-000005&version=1"
+    description: "Palomar registry entry PALOMAR-2026-11-10-000005 v1 (Lean formalization)"
 version: v2.0.0
 license: CC-BY-4.0
 repository-code: "https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS"
