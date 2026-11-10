@@ -102,7 +102,8 @@ The Zenodo DOI above always resolves to the latest version.
 | Version | Content | DOI |
 | --- | --- | --- |
 | v1.0.1 | paper v14; Lean formalization of the combinatorial core | [10.5281/zenodo.23528478](https://doi.org/10.5281/zenodo.23528478) |
-| v2.0.0 | paper v15; complete Lean formalization of Theorem A | see [Zenodo](https://doi.org/10.5281/zenodo.23528477) |
+| (no tag) | paper (PDF only) | [10.5281/zenodo.23528598](https://doi.org/10.5281/zenodo.23528598) |
+| v2.0.0 | paper v15 (PDF) and repository snapshot with the complete Lean formalization of Theorem A | [10.5281/zenodo.24095687](https://doi.org/10.5281/zenodo.24095687) |
 
 ```bibtex
 @misc{AlvesdeAlmeida2026irrationals,
