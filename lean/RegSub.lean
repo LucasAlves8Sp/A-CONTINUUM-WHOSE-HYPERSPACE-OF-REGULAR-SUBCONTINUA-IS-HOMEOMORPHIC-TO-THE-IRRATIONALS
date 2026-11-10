@@ -1,17 +1,21 @@
-import RegSub.Tree
-import RegSub.CodeSpace
-import RegSub.Topology
-import RegSub.GdeltaPolish
-import RegSub.TheoremA
-import RegSub.Knaster
-import RegSub.Composant
-import RegSub.AlexandrovUrysohn
-import RegSub.Irrational
-import RegSub.Hilbert
-import RegSub.Construction
-import RegSub.Geometry
-import RegSub.Interiors
-import RegSub.Description
-import RegSub.Theorem46
-import RegSub.Identification
-import RegSub.Main
+module
+
+public import RegSub.Tree
+public import RegSub.CodeSpace
+public import RegSub.Topology
+public import RegSub.GdeltaPolish
+public import RegSub.TheoremA
+public import RegSub.Knaster
+public import RegSub.Composant
+public import RegSub.AlexandrovUrysohn
+public import RegSub.Irrational
+public import RegSub.Hilbert
+public import RegSub.Construction
+public import RegSub.Geometry
+public import RegSub.Interiors
+public import RegSub.Description
+public import RegSub.Theorem46
+public import RegSub.Identification
+public import RegSub.Main
+
+@[expose] public section

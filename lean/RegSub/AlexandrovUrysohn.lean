@@ -1,8 +1,12 @@
-import Mathlib.Topology.MetricSpace.CantorScheme
-import Mathlib.Topology.MetricSpace.Polish
-import Mathlib.Topology.InductiveDimension.Classes
-import Mathlib.Order.OrderIsoNat
-import RegSub.GdeltaPolish
+module
+
+public import Mathlib.Topology.MetricSpace.CantorScheme
+public import Mathlib.Topology.MetricSpace.Polish
+public import Mathlib.Topology.InductiveDimension.Classes
+public import Mathlib.Order.OrderIsoNat
+public import RegSub.GdeltaPolish
+
+@[expose] public section
 
 /-!
 # The Alexandrov–Urysohn characterization of the Baire space

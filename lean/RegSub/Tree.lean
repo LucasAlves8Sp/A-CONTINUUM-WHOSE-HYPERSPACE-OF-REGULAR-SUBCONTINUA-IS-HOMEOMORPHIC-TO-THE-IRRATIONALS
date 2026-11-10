@@ -1,5 +1,9 @@
-import Mathlib.Data.Set.Finite.Basic
-import Mathlib.Logic.Equiv.List
+module
+
+public import Mathlib.Data.Set.Finite.Basic
+public import Mathlib.Logic.Equiv.List
+
+@[expose] public section
 
 /-!
 # The index tree of the construction

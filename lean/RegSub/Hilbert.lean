@@ -1,7 +1,11 @@
-import Mathlib.Analysis.Normed.Lp.lpSpace
-import Mathlib.Analysis.SpecificLimits.Basic
-import RegSub.Composant
-import RegSub.Tree
+module
+
+public import Mathlib.Analysis.Normed.Lp.lpSpace
+public import Mathlib.Analysis.SpecificLimits.Basic
+public import RegSub.Composant
+public import RegSub.Tree
+
+@[expose] public section
 
 /-!
 # Hilbert space bookkeeping

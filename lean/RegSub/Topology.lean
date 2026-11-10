@@ -1,7 +1,11 @@
-import RegSub.CodeSpace
-import Mathlib.Topology.MetricSpace.Polish
-import Mathlib.Topology.InductiveDimension.Classes
-import Mathlib.Topology.GDelta.Basic
+module
+
+public import RegSub.CodeSpace
+public import Mathlib.Topology.MetricSpace.Polish
+public import Mathlib.Topology.InductiveDimension.Classes
+public import Mathlib.Topology.GDelta.Basic
+
+@[expose] public section
 
 /-!
 # The code space

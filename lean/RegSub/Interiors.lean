@@ -1,4 +1,8 @@
-import RegSub.Geometry
+module
+
+public import RegSub.Geometry
+
+@[expose] public section
 
 /-!
 # Interiors (Lemma 3.5)

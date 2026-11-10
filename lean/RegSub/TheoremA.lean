@@ -1,6 +1,10 @@
-import RegSub.Topology
-import RegSub.GdeltaPolish
-import Mathlib.Topology.MetricSpace.Closeds
+module
+
+public import RegSub.Topology
+public import RegSub.GdeltaPolish
+public import Mathlib.Topology.MetricSpace.Closeds
+
+@[expose] public section
 
 /-!
 # Theorem A from two intermediate statements

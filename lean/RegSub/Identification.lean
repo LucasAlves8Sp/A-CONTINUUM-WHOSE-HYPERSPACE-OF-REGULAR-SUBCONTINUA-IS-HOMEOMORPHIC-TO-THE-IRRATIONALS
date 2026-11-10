@@ -1,5 +1,9 @@
-import RegSub.Theorem46
-import RegSub.TheoremA
+module
+
+public import RegSub.Theorem46
+public import RegSub.TheoremA
+
+@[expose] public section
 
 /-!
 # Proposition 5.2: `𝒟(X)` is homeomorphic to the code space

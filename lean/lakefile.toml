@@ -1,5 +1,5 @@
 name = "RegSub"
-defaultTargets = ["RegSub"]
+defaultTargets = ["RegSub", "Challenge", "Solution"]
 
 [[require]]
 name = "mathlib"
@@ -8,3 +8,11 @@ rev = "6015dbbfc399f4548bafd46f9560ff61595fd328"
 
 [[lean_lib]]
 name = "RegSub"
+
+[[lean_lib]]
+name = "Challenge"
+roots = ["Challenge"]
+
+[[lean_lib]]
+name = "Solution"
+roots = ["Solution"]

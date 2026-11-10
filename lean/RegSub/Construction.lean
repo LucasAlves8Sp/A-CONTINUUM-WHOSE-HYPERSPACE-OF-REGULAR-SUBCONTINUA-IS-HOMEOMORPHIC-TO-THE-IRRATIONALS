@@ -1,5 +1,9 @@
-import RegSub.Hilbert
-import RegSub.CodeSpace
+module
+
+public import RegSub.Hilbert
+public import RegSub.CodeSpace
+
+@[expose] public section
 
 /-!
 # The construction (Sections 3.2 and 3.3 of the paper)

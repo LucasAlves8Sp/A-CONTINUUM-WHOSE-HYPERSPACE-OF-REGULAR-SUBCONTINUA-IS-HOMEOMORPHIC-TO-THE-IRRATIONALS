@@ -1,5 +1,9 @@
-import Mathlib.Topology.MetricSpace.Polish
-import Mathlib.Topology.GDelta.Basic
+module
+
+public import Mathlib.Topology.MetricSpace.Polish
+public import Mathlib.Topology.GDelta.Basic
+
+@[expose] public section
 
 /-!
 # `G_δ` subsets of Polish spaces are Polish

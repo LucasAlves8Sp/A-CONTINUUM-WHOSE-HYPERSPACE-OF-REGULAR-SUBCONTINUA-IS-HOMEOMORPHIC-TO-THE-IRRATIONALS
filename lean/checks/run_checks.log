@@ -76,4 +76,4 @@ axiom Quot.sound.{u} {α : Sort u} {r : α → α → Prop} {a b : α} : r a b �
 
 axiom Classical.choice.{u} {α : Sort u} : Nonempty α → α
 
-Checked 23932 declarations with no errors
+Checked 23933 declarations with no errors

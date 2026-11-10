@@ -1,4 +1,8 @@
-import RegSub
+module
+
+public import RegSub
+
+@[expose] public section
 
 /-!
 # Sanity checks on the translation

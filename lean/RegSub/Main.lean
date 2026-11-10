@@ -1,5 +1,9 @@
-import RegSub.Identification
-import RegSub.Irrational
+module
+
+public import RegSub.Identification
+public import RegSub.Irrational
+
+@[expose] public section
 
 /-!
 # Theorem A, unconditionally

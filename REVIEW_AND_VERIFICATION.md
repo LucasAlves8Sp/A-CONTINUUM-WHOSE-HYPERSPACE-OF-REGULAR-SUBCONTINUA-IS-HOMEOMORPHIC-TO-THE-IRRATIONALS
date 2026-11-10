@@ -110,15 +110,20 @@ These are differences of presentation. Each is stated in the v15 AI disclosure a
 
 ## 5. Verification performed
 
+The development was then ported to the Lean module system, the format the Palomar registry requires: each file starts with `module`, uses `public import`, and puts its contents in an `@[expose] public section`. The project also gained `Challenge.lean`, a Mathlib-only statement of Theorem A, and `Solution.lean`. All checks below were rerun on the ported code; the logs are in `lean/checks/`.
+
 | Check | Result |
 |---|---|
-| Clean rebuild of all 17 modules and the root with `lean` (build directory deleted first) | 0 errors, **0 warnings** |
-| `lake build` in a fresh project copy against the pinned Mathlib (commit `6015dbb`) | **Build completed successfully** (2273 jobs); only style warnings suggesting the `module` keyword |
+| Clean `lake build` against the pinned Mathlib (commit `6015dbb`), build directory deleted first | **Build completed successfully**; no errors. The only warning is the deliberate `sorry` in `Challenge.lean`. |
+| `lake comparator`: `Solution` against `Challenge` | **"Your solution is okay!"** Accepted by the Lean kernel, nanoda and con-ron (con-ron accepted 22,508 declarations). |
 | `CheckAxioms.lean`: 33 declarations, including Theorem A, Alexandrov–Urysohn, ℕ^ℕ ≅ 𝕀, Φ, Theorem 4.6, Lemma 5.1 and the Lemma 3.3 parts | all depend only on `propext`, `Classical.choice`, `Quot.sound`; `pathConvex_iff_parentClosed` uses only `propext`, `Quot.sound` |
 | `SanityChecks.lean` | passes; no errors |
-| `leanchecker` (kernel replay), run separately on each of the 17 modules | exit code 0 for all |
-| `nanoda` (independent type checker, written in Rust), on `lean4export` output of `theoremA_l2`, `theoremA_unconditional` and all dependencies | **"Checked 23932 declarations with no errors"**; axioms: `propext`, `Quot.sound`, `Classical.choice` |
-| Source scan for `sorry`, `admit`, `axiom`, `native_decide`, `implemented_by`, `extern` | none |
+| `leanchecker` (kernel replay), run separately on each of the 17 modules | passes for all |
+| `nanoda` (independent type checker, written in Rust), on `lean4export` output of `theoremA_l2`, `theoremA_unconditional` and all dependencies | **"Checked 23933 declarations with no errors"**; axioms: `propext`, `Quot.sound`, `Classical.choice` |
+| Palomar's own source scan (module header, at most 10,000 lines per file) and metadata loader (`formalization.yaml`) | pass |
+| Source scan for `sorry`, `admit`, `axiom`, `native_decide`, `implemented_by`, `extern` outside `Challenge.lean` | none |
+
+The local `lake comparator` run used `--inadvisably-no-sandbox`, because `bwrap` was not available in the workspace. Palomar runs the sandboxed version.
 
 **What `SanityChecks.lean` checks:**
 

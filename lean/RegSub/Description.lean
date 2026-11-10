@@ -1,4 +1,8 @@
-import RegSub.Interiors
+module
+
+public import RegSub.Interiors
+
+@[expose] public section
 
 /-!
 # The regular subcontinua of `X` (Section 4)

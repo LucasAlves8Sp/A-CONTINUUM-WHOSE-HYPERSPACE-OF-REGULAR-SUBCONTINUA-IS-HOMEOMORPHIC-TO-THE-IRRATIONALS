@@ -1,4 +1,8 @@
-import RegSub.Tree
+module
+
+public import RegSub.Tree
+
+@[expose] public section
 
 /-!
 # Admissible piece sets

@@ -1,9 +1,13 @@
-import Mathlib.Topology.Connected.Clopen
-import Mathlib.Topology.Compactness.Compact
-import Mathlib.Topology.Separation.Hausdorff
-import Mathlib.Topology.Order.Basic
-import Mathlib.Topology.Order.Compact
-import Mathlib.Analysis.SpecificLimits.Basic
+module
+
+public import Mathlib.Topology.Connected.Clopen
+public import Mathlib.Topology.Compactness.Compact
+public import Mathlib.Topology.Separation.Hausdorff
+public import Mathlib.Topology.Order.Basic
+public import Mathlib.Topology.Order.Compact
+public import Mathlib.Analysis.SpecificLimits.Basic
+
+@[expose] public section
 
 /-!
 # The Knaster continuum

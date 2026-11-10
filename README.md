@@ -15,6 +15,7 @@
 | Hexagon preprint | [hexagon:2610.00570v1](https://hexagonmath.org/pdf/2610.00570v1) |
 | Lean formalization | [`lean/`](lean/), with the main theorem `RegSub.theoremA_l2` |
 | Review and verification | [`REVIEW_AND_VERIFICATION.md`](REVIEW_AND_VERIFICATION.md) |
+| Palomar registry submission | branch [`palomar`](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/palomar) (the Lean project at the repository root, with an Apache-2.0 licence) |
 
 ## Abstract
 
@@ -27,7 +28,7 @@ For a metric continuum $X$, let $\mathcal D(X)$ be the hyperspace of subcontinua
 | [`paper/regular-subcontinua-irrationals.pdf`](paper/regular-subcontinua-irrationals.pdf) | The paper (PDF, version v15) |
 | [`paper/regular-subcontinua-irrationals.tex`](paper/regular-subcontinua-irrationals.tex) | LaTeX source of the paper (single file, `amsart`, figures in TikZ) |
 | [`lean/`](lean/) | Complete Lean 4 / Mathlib formalization of Theorem A; see [`lean/README.md`](lean/README.md) |
-| [`lean/checks/`](lean/checks/) | Logs of the build, axiom, kernel-replay and external type-checker runs, and a script that reproduces them |
+| [`lean/checks/`](lean/checks/) | Logs of the build, comparator, axiom, kernel-replay and external type-checker runs, and a script that reproduces them |
 | [`REVIEW_AND_VERIFICATION.md`](REVIEW_AND_VERIFICATION.md) | Mathematical review of the paper; coverage of the paper by the Lean code; the checks performed |
 | [`AI_DISCLOSURE.md`](AI_DISCLOSURE.md) | The AI disclosure, as it appears in the paper |
 | [`prompt/first-prompt.md`](prompt/first-prompt.md) | The full first prompt given to Claude to start the work, unedited |
@@ -35,7 +36,7 @@ For a metric continuum $X$, let $\mathcal D(X)$ be the hyperspace of subcontinua
 
 ## The Lean formalization
 
-The folder [`lean/`](lean/) contains a Lean 4 / Mathlib development that formalizes the **complete proof of Theorem A**, including the classical results it uses. It uses Lean 4.35.0 and Mathlib commit `6015dbb`, and has about 4,600 lines in 17 files. There is no `sorry`, no added axiom and no hypothesis. `#print axioms` reports only Lean's standard axioms `propext`, `Classical.choice` and `Quot.sound`. The final theorem (`RegSub/Main.lean`) is
+The folder [`lean/`](lean/) contains a Lean 4 / Mathlib development that formalizes the **complete proof of Theorem A**, including the classical results it uses. It uses Lean 4.35.0 and Mathlib commit `6015dbb`, has about 4,700 lines in 17 files, and uses the Lean module system throughout. There is no `sorry`, no added axiom and no hypothesis. `#print axioms` reports only Lean's standard axioms `propext`, `Classical.choice` and `Quot.sound`. The final theorem (`RegSub/Main.lean`) is
 
 ```lean
 theorem RegSub.theoremA_l2 :
@@ -61,12 +62,20 @@ The formalization follows the paper. It differs only in presentation: the templa
 
 | Check | Result |
 | --- | --- |
-| clean `lake build` against the pinned Mathlib | builds; only style warnings suggesting the `module` keyword |
-| clean build with `lean` directly | no errors, no warnings |
+| clean `lake build` against the pinned Mathlib | no errors; the only warning is the deliberate `sorry` in `Challenge.lean` |
+| `lake comparator`: `Solution` against `Challenge` | accepted by the Lean kernel, nanoda and con-ron |
 | `CheckAxioms.lean` (33 results, including Theorem A) | only `propext`, `Classical.choice`, `Quot.sound` |
 | `SanityChecks.lean` (the translation checked on examples) | passes |
 | kernel replay with `leanchecker`, all 17 modules | passes |
-| independent type checker `nanoda`, Theorem A and all dependencies | "Checked 23932 declarations with no errors" |
+| independent type checker `nanoda`, Theorem A and all dependencies | "Checked 23933 declarations with no errors" |
+
+**Palomar.** The formalization is prepared for the [Palomar registry](https://palomar-registry.org/) of formally verified results:
+
+- `lean/Challenge.lean` states Theorem A using only Mathlib.
+- `lean/Solution.lean` re-exports the proof.
+- `lean/comparator.json` and `lean/formalization.yaml` hold the comparator configuration and the provenance metadata.
+
+Palomar requires a single licence file at the repository root, so the submitted copy is the branch [`palomar`](https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/palomar). It contains the same Lean project at its root, with an Apache-2.0 `LICENSE`.
 
 ## Building
 
@@ -80,7 +89,8 @@ lake exe cache get
 lake build
 lake env lean CheckAxioms.lean
 lake env lean SanityChecks.lean
-./checks/run_checks.sh    # optional: leanchecker and nanoda as well
+./scripts/verify-comparator.sh   # Challenge vs Solution; needs bubblewrap
+./checks/run_checks.sh           # optional: leanchecker and nanoda as well
 ```
 
 ## How to cite

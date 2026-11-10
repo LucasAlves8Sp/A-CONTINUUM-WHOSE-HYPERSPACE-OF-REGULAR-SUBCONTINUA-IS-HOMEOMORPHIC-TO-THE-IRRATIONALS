@@ -1,45 +1,22 @@
-⚠ [1755/1768] Built RegSub.Tree (1.8s)
-warning: RegSub/Tree.lean: imports `Mathlib.Data.Set.Finite.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Tree.lean: imports `Mathlib.Logic.Equiv.List` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [1756/1770] Built RegSub.GdeltaPolish (1.6s)
-warning: RegSub/GdeltaPolish.lean: imports `Mathlib.Topology.MetricSpace.Polish` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/GdeltaPolish.lean: imports `Mathlib.Topology.GDelta.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-✔ [1758/1772] Built RegSub.CodeSpace (1.3s)
-⚠ [1760/1773] Built RegSub.Topology (2.9s)
-warning: RegSub/Topology.lean: imports `Mathlib.Topology.MetricSpace.Polish` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Topology.lean: imports `Mathlib.Topology.InductiveDimension.Classes` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Topology.lean: imports `Mathlib.Topology.GDelta.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [1765/1776] Built RegSub.Knaster (4.8s)
-warning: RegSub/Knaster.lean: imports `Mathlib.Topology.Connected.Clopen` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Knaster.lean: imports `Mathlib.Topology.Compactness.Compact` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Knaster.lean: imports `Mathlib.Topology.Separation.Hausdorff` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Knaster.lean: imports `Mathlib.Topology.Order.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Knaster.lean: imports `Mathlib.Topology.Order.Compact` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Knaster.lean: imports `Mathlib.Analysis.SpecificLimits.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [1772/1777] Built RegSub.AlexandrovUrysohn (2.4s)
-warning: RegSub/AlexandrovUrysohn.lean: imports `Mathlib.Topology.MetricSpace.CantorScheme` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/AlexandrovUrysohn.lean: imports `Mathlib.Topology.MetricSpace.Polish` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/AlexandrovUrysohn.lean: imports `Mathlib.Topology.InductiveDimension.Classes` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/AlexandrovUrysohn.lean: imports `Mathlib.Order.OrderIsoNat` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [1774/1848] Built RegSub.Composant (2.2s)
-warning: RegSub/Composant.lean: imports `Mathlib.Topology.Baire.Lemmas` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Composant.lean: imports `Mathlib.Topology.Baire.LocallyCompactRegular` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Composant.lean: imports `Mathlib.Topology.Bases` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Composant.lean: imports `Mathlib.Topology.Compactness.Compact` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Composant.lean: imports `Mathlib.Order.Filter.CountablyGenerated` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [2037/2134] Built RegSub.TheoremA (1.8s)
-warning: RegSub/TheoremA.lean: imports `Mathlib.Topology.MetricSpace.Closeds` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [2263/2273] Built RegSub.Irrational (2.1s)
-warning: RegSub/Irrational.lean: imports `Mathlib.Topology.Instances.Irrational` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-⚠ [2264/2273] Built RegSub.Hilbert (3.0s)
-warning: RegSub/Hilbert.lean: imports `Mathlib.Analysis.Normed.Lp.lpSpace` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-warning: RegSub/Hilbert.lean: imports `Mathlib.Analysis.SpecificLimits.Basic` from package `mathlib`, which is designed for use with the module system; consider adding `module` to the start of this file
-✔ [2265/2273] Built RegSub.Construction (4.6s)
-✔ [2266/2273] Built RegSub.Geometry (3.2s)
-✔ [2267/2273] Built RegSub.Interiors (2.7s)
-✔ [2268/2273] Built RegSub.Description (2.6s)
-✔ [2269/2273] Built RegSub.Theorem46 (2.8s)
-✔ [2270/2273] Built RegSub.Identification (2.6s)
-✔ [2271/2273] Built RegSub.Main (1.9s)
-✔ [2272/2273] Built RegSub (1.8s)
-Build completed successfully (2273 jobs).
+✔ [1755/1770] Built RegSub.Tree (1.4s)
+✔ [1757/1770] Built RegSub.GdeltaPolish (1.2s)
+✔ [1758/1772] Built RegSub.CodeSpace (1.5s)
+✔ [1760/1773] Built RegSub.Topology (2.3s)
+✔ [1765/1776] Built RegSub.Knaster (5.5s)
+✔ [1772/1776] Built RegSub.AlexandrovUrysohn (2.4s)
+✔ [1774/1870] Built RegSub.Composant (2.3s)
+✔ [2036/2058] Built RegSub.TheoremA (1.4s)
+✔ [2263/2277] Built RegSub.Irrational (1.8s)
+⚠ [2264/2277] Built Challenge (1.5s)
+warning: Challenge.lean:50:8: declaration uses `sorry`
+✔ [2266/2277] Built RegSub.Hilbert (3.5s)
+✔ [2267/2277] Built RegSub.Construction (4.4s)
+✔ [2268/2277] Built RegSub.Geometry (3.2s)
+✔ [2269/2277] Built RegSub.Interiors (2.2s)
+✔ [2270/2277] Built RegSub.Description (2.5s)
+✔ [2271/2277] Built RegSub.Theorem46 (2.3s)
+✔ [2272/2277] Built RegSub.Identification (2.5s)
+✔ [2273/2277] Built RegSub.Main (1.7s)
+✔ [2274/2277] Built RegSub (1.3s)
+✔ [2276/2277] Built Solution (1.3s)
+Build completed successfully (2277 jobs).

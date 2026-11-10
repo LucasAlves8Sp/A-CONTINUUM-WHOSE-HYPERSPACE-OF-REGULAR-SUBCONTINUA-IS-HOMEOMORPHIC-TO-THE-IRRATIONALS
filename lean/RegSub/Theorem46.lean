@@ -1,5 +1,9 @@
-import RegSub.Description
-import RegSub.Topology
+module
+
+public import RegSub.Description
+public import RegSub.Topology
+
+@[expose] public section
 
 /-!
 # Theorem 4.6 (description of `𝒟(X)`) and Lemma 5.1

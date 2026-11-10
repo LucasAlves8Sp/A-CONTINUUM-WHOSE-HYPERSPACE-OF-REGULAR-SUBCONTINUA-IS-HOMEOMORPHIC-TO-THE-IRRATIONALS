@@ -1,4 +1,8 @@
-import RegSub.Construction
+module
+
+public import RegSub.Construction
+
+@[expose] public section
 
 /-!
 # Geometry of `X` (Lemma 3.3)

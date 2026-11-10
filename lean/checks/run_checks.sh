@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Reproduce the checks recorded in this folder. Run from `lean/` after `lake build`.
+# Reproduce the checks recorded in this folder. Run from the project root after `lake build`.
 #
 # Tools: `leanchecker` ships with Lean; `lean4export` (https://github.com/leanprover/lean4export)
 # and `nanoda_bin` (https://github.com/ammkrn/nanoda_lib) are external. Override the binary

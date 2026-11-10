@@ -1,5 +1,9 @@
-import RegSub.AlexandrovUrysohn
-import Mathlib.Topology.Instances.Irrational
+module
+
+public import RegSub.AlexandrovUrysohn
+public import Mathlib.Topology.Instances.Irrational
+
+@[expose] public section
 
 /-!
 # The Baire space is homeomorphic to the irrationals

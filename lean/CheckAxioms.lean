@@ -1,4 +1,8 @@
-import RegSub
+module
+
+public import RegSub
+
+@[expose] public section
 
 /-! Run `lake env lean CheckAxioms.lean` to list the axioms used by the main results. -/
 

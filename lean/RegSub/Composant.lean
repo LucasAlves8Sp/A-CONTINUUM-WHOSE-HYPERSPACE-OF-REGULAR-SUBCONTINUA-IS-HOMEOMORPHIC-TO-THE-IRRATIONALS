@@ -1,9 +1,13 @@
-import RegSub.Knaster
-import Mathlib.Topology.Baire.Lemmas
-import Mathlib.Topology.Baire.LocallyCompactRegular
-import Mathlib.Topology.Bases
-import Mathlib.Topology.Compactness.Compact
-import Mathlib.Order.Filter.CountablyGenerated
+module
+
+public import RegSub.Knaster
+public import Mathlib.Topology.Baire.Lemmas
+public import Mathlib.Topology.Baire.LocallyCompactRegular
+public import Mathlib.Topology.Bases
+public import Mathlib.Topology.Compactness.Compact
+public import Mathlib.Order.Filter.CountablyGenerated
+
+@[expose] public section
 
 /-!
 # Composants and the template points (Fact 2.4 and Lemma 3.1)
