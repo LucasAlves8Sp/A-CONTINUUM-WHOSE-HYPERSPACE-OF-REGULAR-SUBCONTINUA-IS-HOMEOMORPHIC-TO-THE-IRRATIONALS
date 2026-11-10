@@ -1,0 +1,226 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/mathlib-initiative/formalization.yaml/main/schema/formalization.schema.json
+version: "v0.4"
+
+project:
+  name: "A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals"
+  description: >-
+    For a metric continuum X, a subcontinuum is regular if it equals the
+    closure of its interior, and D(X) denotes the hyperspace of regular
+    subcontinua with the Hausdorff metric. Camargo, Ordoñez and Ramírez asked
+    whether D(X) can be homeomorphic to the rationals or to the irrationals.
+    This project formalizes in Lean 4 with Mathlib the complete proof of the
+    affirmative answer for the irrationals: there is a nondegenerate compact
+    connected set X in the Hilbert space ℓ² such that D(X) is homeomorphic to
+    the Baire space ℕ^ℕ and to the space of irrational numbers. The continuum
+    X is the closure of a countable tree of scaled copies of the Knaster
+    continuum, realized in ℓ² as the inverse limit of the tent map. The
+    formalization proves that the regular subcontinua of X are coded exactly by
+    the nonempty, convex sets of pieces that satisfy a density condition. It
+    shows that this coding is a homeomorphism onto a nonempty,
+    zero-dimensional G_δ subset of a Cantor cube in which every compact set has
+    empty interior. It then concludes with the Alexandrov–Urysohn
+    characterization of the Baire space and the homeomorphism between ℕ^ℕ and
+    the irrationals. Both classical results are also proved in the project.
+  authors:
+    - "Lucas Alves de Almeida"
+  license: "Apache-2.0"
+  responsible_maintainers:
+    - "Lucas Alves de Almeida"
+
+classification:
+  arxiv: ["math.GN"]
+  msc2020: ["54B20", "54F15", "54F16", "54H05", "54F65", "54E52"]
+
+sources:
+  - title: "A continuum whose hyperspace of regular subcontinua is homeomorphic to the irrationals"
+    authors:
+      - "Lucas Alves de Almeida"
+    id: "doi:10.5281/zenodo.23528477"
+    type: "paper"
+    location: "https://doi.org/10.5281/zenodo.23528477 (also hexagon:2610.00570, https://hexagonmath.org/pdf/2610.00570v1)"
+    relationship: "formalizes"
+    note: >-
+      Preprint that first presents Theorem A, written with substantial AI
+      assistance as stated in its AI disclosure. The formalization follows
+      version v15 of the paper (the paper/ folder of the main branch of this
+      repository); hexagon:2610.00570v1 is version v14, whose mathematics is
+      the same. Divergences in presentation are listed under fidelity.
+    license: "CC-BY-4.0"
+    author_endorsement: "participated"
+  - title: "On the hyperspaces of meager and regular continua"
+    authors:
+      - "Javier Camargo"
+      - "Nelson Ordoñez"
+      - "Daniel Ramírez"
+    id: "doi:10.4995/agt.2024.20116"
+    type: "paper"
+    location: "Applied General Topology 25 (2024), no. 2, 385–406"
+    relationship: "background"
+    note: "Question 3.26 asks whether D(X) can be homeomorphic to the rationals or to the irrationals; Theorem A answers the irrational case."
+    author_endorsement: "not-contacted"
+  - title: "Los hiperespacios de subcontinuos regulares y subcontinuos magros"
+    authors:
+      - "Daniel Alfonso Ramírez Angarita"
+    type: "other"
+    location: "Undergraduate thesis, Universidad Industrial de Santander, Bucaramanga, 2023; https://noesis.uis.edu.co/entities/publication/cd4f0fe6-ec75-47d8-8e0a-617149375321"
+    relationship: "background"
+    note: "Pregunta 3.2.14 is the earlier form of the question."
+    author_endorsement: "not-contacted"
+  - title: "Classical Descriptive Set Theory"
+    authors:
+      - "Alexander S. Kechris"
+    type: "book"
+    location: "Graduate Texts in Mathematics 156, Springer, 1995"
+    relationship: "background"
+    note: "Theorem 7.7 (Alexandrov–Urysohn characterization of the Baire space) and the homeomorphism between ℕ^ℕ and the irrationals are proved in this project as ingredients of the proof (RegSub.alexandrovUrysohn, RegSub.baire_homeomorph_irr)."
+    author_endorsement: "n/a"
+  - title: "Continuum Theory: An Introduction"
+    authors:
+      - "Sam B. Nadler, Jr."
+    type: "book"
+    location: "Monographs and Textbooks in Pure and Applied Mathematics 158, Marcel Dekker, 1992"
+    relationship: "background"
+    note: "Background on indecomposable continua and composants (Chapter XI); the facts used are proved in the project for the template continuum."
+    author_endorsement: "n/a"
+
+related_formalizations:
+  - id: "https://github.com/LucasAlves8Sp/A-CONTINUUM-WHOSE-HYPERSPACE-OF-REGULAR-SUBCONTINUA-IS-HOMEOMORPHIC-TO-THE-IRRATIONALS/tree/v1.0.1"
+    relationship: "supersedes"
+    note: >-
+      An earlier version of this formalization (release v1.0.1 of the same
+      repository) proved only the combinatorial core and derived Theorem A
+      from two explicit hypotheses: the Alexandrov–Urysohn theorem and the
+      geometric identification of D(X) with the code space. Both are proved
+      here, and the files of that version (Tree, CodeSpace, Topology,
+      GdeltaPolish, TheoremA) are reused unchanged apart from the module
+      system.
+
+status:
+  scope: >-
+    The Challenge theorem RegSub.theoremA_l2 is the complete Theorem A of the
+    paper for a continuum in ℓ², with D(X) homeomorphic both to ℕ → ℕ and to
+    the irrationals. Formalized: the template continuum and the facts on
+    indecomposable continua and composants that the proof uses; the
+    construction in ℓ² and Lemmas 3.1–3.3 and 3.5(a),(c); Lemmas 4.2–4.5 and
+    both directions of Theorem 4.6; Lemma 5.1 and Propositions 5.2 and 5.3;
+    Proposition 5.4 in the code-space form that suffices for Theorem A;
+    the direction of Fact 2.5(a) used; the Alexandrov–Urysohn theorem; and
+    ℕ^ℕ homeomorphic to the irrationals. Not formalized, because Theorem A does
+    not use them: Example 2.6, Lemma 3.5(b), the branch-limit statement in
+    Lemma 3.3(h), the geometric form of Proposition 5.4 (the non-regular limit
+    continua A*), Remarks 4.7 and 5.5–5.7, and Section 6 on the rational case,
+    which remains open.
+  sorry_count: 0
+  sorry_in_definitions: 0
+  axioms: []
+  main_results:
+    - "RegSub.theoremA_l2"
+    - "RegSub.alexandrovUrysohn"
+    - "RegSub.baire_homeomorph_irr"
+    - "RegSub.PhiHomeo"
+
+automation:
+  methods:
+    - method: "agent"
+      models: ["Claude Opus 5.5"]
+      framework: "Claude (Anthropic) agentic workspace built on Claude Code"
+      tool_setup: >-
+        The agent wrote all Lean code and documentation in a cloud workspace,
+        compiling with Lean 4.35.0 and Mathlib, and ran the checks itself:
+        CheckAxioms.lean, SanityChecks.lean, leanchecker, lean4export with
+        nanoda, and lake comparator with the Lean kernel, nanoda and con-ron.
+        The same agent also drafted the paper's construction and proofs with
+        the author, as the paper's AI disclosure states.
+      cost:
+        wall_time: "not tracked precisely; several agent sessions"
+        spend_usd: "subscription-based"
+        hardware: "cloud workspace; model accessed through Anthropic's service"
+      prompting_notes: >-
+        The author set the research problem and plan, then asked for a full
+        Lean formalization including the known results it uses, followed by a
+        recheck, compilation and review. The first prompt of the project is
+        kept unedited in prompt/first-prompt.md on the main branch of the
+        repository.
+  spend_usd: "subscription-based"
+  notes: >-
+    The human author chose the problem, supplied the literature, directed the
+    work and reviewed the outputs at each stage; he did not write the Lean
+    code. Claude Opus 5.5 proposed the construction, wrote the proofs in the
+    paper and produced the whole formalization. ChatGPT-Astra (OpenAI) was used
+    with the author to check successive versions of the manuscript, not the
+    Lean code.
+
+fidelity:
+  divergences: >-
+    Differences of presentation from the paper, none changing the
+    mathematics: (1) the template continuum is the inverse limit of the tent
+    map t ↦ min(2t, 2 − 2t) on [0,1], a standard model of the Knaster
+    continuum, instead of the planar bucket-handle picture; (2) each piece
+    receives its own infinite block of coordinates of ℓ² instead of a plane,
+    and the template is embedded by z ↦ (2^{-(n+1)} z_n); (3) the root offset
+    is the template point ρ instead of (0,0); (4) indices start at 0; (5)
+    "distinct composants" is formalized as "not in a common proper
+    subcontinuum", and the template points of Lemma 3.1 are obtained from the
+    Baire category theorem; (6) the density condition (c) of Theorem 4.6 is
+    encoded with a countable base, with a proof that the encoding is
+    equivalent; (7) Proposition 5.4 is proved in the code space and
+    transferred through the homeomorphism of Proposition 5.2. The Challenge
+    adds X.Nontrivial, which the conclusion implies anyway.
+
+review:
+  status: "self-assessed"
+  notes: >-
+    No independent human or expert review of the paper or of the Lean
+    statement has been performed. The producing agent audited the statement
+    against the paper (SanityChecks.lean checks the definitions on examples,
+    including that the topology on NonemptyCompacts is the Hausdorff-metric
+    topology and that the template continuum is indecomposable) and carried out
+    a line-by-line review of the paper, recorded in REVIEW_AND_VERIFICATION.md
+    on the main branch. Mechanical checks: build with no errors or warnings;
+    only the axioms propext, Classical.choice and Quot.sound; leanchecker
+    replay of every module; nanoda on Theorem A with all 23,932 dependencies;
+    lake comparator accepted by the Lean kernel, nanoda and con-ron.
+
+alignment:
+  namespace: "RegSub"
+  statements:
+    - source: "Theorem A"
+      lean: "RegSub.theoremA_l2"
+      module: "RegSub.Main"
+      status: "proved"
+      note: "The Challenge statement; also states nondegeneracy of X and both homeomorphisms."
+    - source: "Definition of D(X) (Section 1)"
+      lean: "RegSub.regularSubcontinua"
+      module: "RegSub.TheoremA"
+      status: "proved"
+      note: "Definition used in the Challenge, identical in Challenge.lean."
+    - source: "Theorem 4.6"
+      lean: "RegSub.pcs_admissible"
+      module: "RegSub.Theorem46"
+      status: "proved"
+      note: "Necessity; sufficiency is RegSub.reg_Psi with RegSub.pcs_Psi and RegSub.Psi_pcs."
+    - source: "Proposition 5.2"
+      lean: "RegSub.PhiHomeo"
+      module: "RegSub.Identification"
+      status: "proved"
+      note: "D(X) is homeomorphic to the code space."
+    - source: "Proposition 5.4"
+      lean: "RegSub.isCompact_interior_eq_empty"
+      module: "RegSub.Topology"
+      status: "adapted"
+      note: "Proved in the code space; transferred to D(X) through RegSub.PhiHomeo."
+    - source: "Fact 2.5(b), Kechris Theorem 7.7 (Alexandrov–Urysohn)"
+      lean: "RegSub.alexandrovUrysohn"
+      module: "RegSub.AlexandrovUrysohn"
+      status: "proved"
+      note: "Proved with a Lusin scheme."
+    - source: "Fact 2.5(c)"
+      lean: "RegSub.baire_homeomorph_irr"
+      module: "RegSub.Irrational"
+      status: "proved"
+      note: "ℕ → ℕ is homeomorphic to the irrationals."
+
+acknowledgements: >-
+  Mathlib and the Lean FRO for Lean 4, Lake, leanchecker and lake comparator;
+  the authors of lean4export, nanoda and con-ron. Javier Camargo, Nelson
+  Ordoñez and Daniel Ramírez posed the question.
